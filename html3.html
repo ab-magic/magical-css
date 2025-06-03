@@ -1,0 +1,1167 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookquest - Gamified Library App</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { 
+            margin: 0; 
+            padding: 20px; 
+            font-family: system-ui, -apple-system, sans-serif; 
+            line-height: 1.5;
+            background: #f9fafb;
+        }
+        .live-preview-indicator {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #10b981;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 1000;
+        }
+    </style>
+<style>
+            [data-editable]:hover {
+              outline: 2px dashed #6366f1;
+              cursor: pointer;
+              position: relative;
+            }
+            [data-editing] {
+              outline: 2px solid #6366f1;
+              position: relative;
+            }
+            .edit-overlay {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: rgba(0,0,0,0.1);
+              z-index: 1000;
+            }
+          </style><style>
+            [data-editable]:hover {
+              outline: 2px dashed #6366f1;
+              cursor: pointer;
+              position: relative;
+            }
+            [data-editing] {
+              outline: 2px solid #6366f1;
+              position: relative;
+            }
+            .edit-overlay {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: rgba(0,0,0,0.1);
+              z-index: 1000;
+            }
+          </style><style>
+            [data-editable]:hover {
+              outline: 2px dashed #6366f1;
+              cursor: pointer;
+              position: relative;
+            }
+            [data-editing] {
+              outline: 2px solid #6366f1;
+              position: relative;
+            }
+            .edit-overlay {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: rgba(0,0,0,0.1);
+              z-index: 1000;
+            }
+          </style><style>
+            [data-editable]:hover {
+              outline: 2px dashed #6366f1;
+              cursor: pointer;
+              position: relative;
+            }
+            [data-editing] {
+              outline: 2px solid #6366f1;
+              position: relative;
+            }
+            .edit-overlay {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: rgba(0,0,0,0.1);
+              z-index: 1000;
+            }
+          </style><style>
+            [data-editable]:hover {
+              outline: 2px dashed #6366f1;
+              cursor: pointer;
+              position: relative;
+            }
+            [data-editing] {
+              outline: 2px solid #6366f1;
+              position: relative;
+            }
+            .edit-overlay {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: rgba(0,0,0,0.1);
+              z-index: 1000;
+            }
+          </style><style>
+            [data-editable]:hover {
+              outline: 2px dashed #6366f1;
+              cursor: pointer;
+              position: relative;
+            }
+            [data-editing] {
+              outline: 2px solid #6366f1;
+              position: relative;
+            }
+            .edit-overlay {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: rgba(0,0,0,0.1);
+              z-index: 1000;
+            }
+          </style><style>
+            [data-editable]:hover {
+              outline: 2px dashed #6366f1;
+              cursor: pointer;
+              position: relative;
+            }
+            [data-editing] {
+              outline: 2px solid #6366f1;
+              position: relative;
+            }
+            .edit-overlay {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: rgba(0,0,0,0.1);
+              z-index: 1000;
+            }
+          </style><style>
+            [data-editable]:hover {
+              outline: 2px dashed #6366f1;
+              cursor: pointer;
+              position: relative;
+            }
+            [data-editing] {
+              outline: 2px solid #6366f1;
+              position: relative;
+            }
+            .edit-overlay {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: rgba(0,0,0,0.1);
+              z-index: 1000;
+            }
+          </style><style>
+            [data-editable]:hover {
+              outline: 2px dashed #6366f1;
+              cursor: pointer;
+              position: relative;
+            }
+            [data-editing] {
+              outline: 2px solid #6366f1;
+              position: relative;
+            }
+            .edit-overlay {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: rgba(0,0,0,0.1);
+              z-index: 1000;
+            }
+          </style><style>
+            [data-editable]:hover {
+              outline: 2px dashed #6366f1;
+              cursor: pointer;
+              position: relative;
+            }
+            [data-editing] {
+              outline: 2px solid #6366f1;
+              position: relative;
+            }
+            .edit-overlay {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: rgba(0,0,0,0.1);
+              z-index: 1000;
+            }
+          </style><style>
+            [data-editable]:hover {
+              outline: 2px dashed #6366f1;
+              cursor: pointer;
+              position: relative;
+            }
+            [data-editing] {
+              outline: 2px solid #6366f1;
+              position: relative;
+            }
+            .edit-overlay {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: rgba(0,0,0,0.1);
+              z-index: 1000;
+            }
+          </style><style>
+            [data-editable]:hover {
+              outline: 2px dashed #6366f1;
+              cursor: pointer;
+              position: relative;
+            }
+            [data-editing] {
+              outline: 2px solid #6366f1;
+              position: relative;
+            }
+            .edit-overlay {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: rgba(0,0,0,0.1);
+              z-index: 1000;
+            }
+          </style><style>
+            [data-editable]:hover {
+              outline: 2px dashed #6366f1;
+              cursor: pointer;
+              position: relative;
+            }
+            [data-editing] {
+              outline: 2px solid #6366f1;
+              position: relative;
+            }
+            .edit-overlay {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: rgba(0,0,0,0.1);
+              z-index: 1000;
+            }
+          </style><style>
+            [data-editable]:hover {
+              outline: 2px dashed #6366f1;
+              cursor: pointer;
+              position: relative;
+            }
+            [data-editing] {
+              outline: 2px solid #6366f1;
+              position: relative;
+            }
+            .edit-overlay {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: rgba(0,0,0,0.1);
+              z-index: 1000;
+            }
+          </style><style>
+            [data-editable]:hover {
+              outline: 2px dashed #6366f1;
+              cursor: pointer;
+              position: relative;
+            }
+            [data-editing] {
+              outline: 2px solid #6366f1;
+              position: relative;
+            }
+            .edit-overlay {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: rgba(0,0,0,0.1);
+              z-index: 1000;
+            }
+          </style><style>
+            [data-editable]:hover {
+              outline: 2px dashed #6366f1;
+              cursor: pointer;
+              position: relative;
+            }
+            [data-editing] {
+              outline: 2px solid #6366f1;
+              position: relative;
+            }
+            .edit-overlay {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: rgba(0,0,0,0.1);
+              z-index: 1000;
+            }
+          </style><style>
+            [data-editable]:hover {
+              outline: 2px dashed #6366f1;
+              cursor: pointer;
+              position: relative;
+            }
+            [data-editing] {
+              outline: 2px solid #6366f1;
+              position: relative;
+            }
+            .edit-overlay {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: rgba(0,0,0,0.1);
+              z-index: 1000;
+            }
+          </style></head>
+<body>
+    <div class="live-preview-indicator" data-editable="true">● Building Live</div>
+    
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookQuest - Your Reading Adventure</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Lato:wght@300;400;700&amp;display=swap">
+    <style>
+        :root {
+            --primary: #8C6057;
+            --primary-light: #D9BFB7;
+            --secondary: #4A6670;
+            --accent: #E6A65D;
+            --background: #F9F5F1;
+            --paper: #FFFCF7;
+            --text: #2D2926;
+            --text-light: #5D5A56;
+            --success: #7A9E7E;
+            --border-radius: 12px;
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--paper);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo-text span {
+            color: var(--accent);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .level-badge {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            border: 2px solid var(--accent);
+        }
+
+        /* Main Content */
+        main {
+            padding: 30px 0;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .dashboard {
+                grid-template-columns: 3fr 1fr;
+            }
+        }
+
+        /* Reading Progress */
+        .reading-progress {
+            background-color: var(--paper);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .progress-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .progress-stats {
+            display: flex;
+            gap: 15px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 12px;
+            background-color: var(--primary-light);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 65%;
+            background-color: var(--primary);
+            border-radius: 10px;
+            transition: width 1s ease-in-out;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Book Collection */
+        .book-collection {
+            margin-bottom: 30px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .view-all {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .view-all:hover {
+            color: var(--accent);
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .book-card {
+            background-color: var(--paper);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .book-cover {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .book-info {
+            padding: 15px;
+        }
+
+        .book-title {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .book-author {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .book-progress {
+            height: 4px;
+            background-color: var(--primary-light);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .book-progress-bar {
+            height: 100%;
+            background-color: var(--success);
+        }
+
+        .book-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 10px;
+        }
+
+        /* Achievements */
+        .achievements {
+            background-color: var(--paper);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+
+        .achievement-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .achievement-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px;
+            border-radius: var(--border-radius);
+            background-color: var(--background);
+            transition: var(--transition);
+        }
+
+        .achievement-item:hover {
+            transform: translateX(5px);
+        }
+
+        .achievement-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .achievement-unlocked .achievement-icon {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .achievement-info {
+            flex: 1;
+        }
+
+        .achievement-name {
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .achievement-desc {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .achievement-locked .achievement-name,
+        .achievement-locked .achievement-desc {
+            color: #AAA;
+        }
+
+        .achievement-progress {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Reading Challenges */
+        .reading-challenges {
+            background-color: var(--paper);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-top: 30px;
+        }
+
+        .challenge-item {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 15px;
+            background-color: var(--background);
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+        }
+
+        .challenge-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .challenge-title {
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .challenge-reward {
+            background-color: var(--accent);
+            color: white;
+            font-size: 0.8rem;
+            padding: 3px 8px;
+            border-radius: 10px;
+        }
+
+        .challenge-progress-bar {
+            height: 8px;
+            background-color: var(--primary-light);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .challenge-progress-fill {
+            height: 100%;
+            background-color: var(--secondary);
+        }
+
+        .challenge-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--paper);
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.08);
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 0;
+            z-index: 100;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .nav-item.active {
+            color: var(--primary);
+        }
+
+        .nav-icon {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        /* Add Book Button */
+        .add-book-btn {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(230, 166, 93, 0.4);
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 99;
+        }
+
+        .add-book-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .book-card {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .book-card:nth-child(2) { animation-delay: 0.1s; }
+        .book-card:nth-child(3) { animation-delay: 0.2s; }
+        .book-card:nth-child(4) { animation-delay: 0.3s; }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .achievement-unlocked {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsive adjustments */
+        @media (min-width: 1024px) {
+            .bottom-nav {
+                display: none;
+            }
+
+            .add-book-btn {
+                bottom: 30px;
+            }
+
+            main {
+                padding-bottom: 50px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .books-grid {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            }
+
+            .book-cover {
+                height: 180px;
+            }
+
+            main {
+                padding-bottom: 80px;
+            }
+        }
+    </style>
+
+
+    <header>
+        <div class="container" data-editable="true">
+            <div class="header-content" data-editable="true">
+                <div class="logo" data-editable="true">
+                    <div class="logo-icon" data-editable="true">📚</div>
+                    <div class="logo-text" data-editable="true">Book<span data-editable="true">Quest</span></div>
+                </div>
+                <div class="user-profile" data-editable="true">
+                    <div class="level-badge" data-editable="true">Level 7 Reader</div>
+                    <div class="avatar" data-editable="true">JD</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container" data-editable="true">
+            <div class="dashboard" data-editable="true">
+                <div class="main-content" data-editable="true">
+                    <div class="reading-progress" data-editable="true">
+                        <div class="progress-header" data-editable="true">
+                            <h2 class="progress-title" data-editable="true" data-editing="true" style="font-family: Helvetica;">Your Reading Journey</h2>
+                            <div class="progress-stats" data-editable="true">
+                                <div class="stat" data-editable="true">
+                                    <div class="stat-value" data-editable="true">12</div>
+                                    <div class="stat-label" data-editable="true">Books Read</div>
+                                </div>
+                                <div class="stat" data-editable="true">
+                                    <div class="stat-value" data-editable="true">3</div>
+                                    <div class="stat-label" data-editable="true">In Progress</div>
+                                </div>
+                                <div class="stat" data-editable="true">
+                                    <div class="stat-value" data-editable="true">1,842</div>
+                                    <div class="stat-label" data-editable="true">Pages</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 5%;"></div>
+                        </div>
+                        <div class="progress-info" data-editable="true">
+                            <span data-editable="true">65% to Level 8</span>
+                            <span data-editable="true">1,250 XP / 2,000 XP</span>
+                        </div>
+                    </div>
+
+                    <div class="book-collection" data-editable="true">
+                        <div class="section-header" data-editable="true">
+                            <h2 class="section-title" data-editable="true">Currently Reading</h2>
+                            <a href="#" class="view-all" data-editable="true">View All</a>
+                        </div>
+                        <div class="books-grid" data-editable="true">
+                            <div class="book-card" data-editable="true">
+                                <div class="book-cover" style="background-image: url('https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=387&amp;q=80');"></div>
+                                <div class="book-info" data-editable="true">
+                                    <h3 class="book-title" data-editable="true">The Midnight Library</h3>
+                                    <p class="book-author" data-editable="true">Matt Haig</p>
+                                    <div class="book-progress">
+                                        <div class="book-progress-bar" style="width: 75%;"></div>
+                                    </div>
+                                </div>
+                                <div class="book-badge" data-editable="true">+15 XP</div>
+                            </div>
+                            <div class="book-card" data-editable="true">
+                                <div class="book-cover" style="background-image: url('https://images.unsplash.com/photo-1629992101753-56d196c8aabb?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=390&amp;q=80');"></div>
+                                <div class="book-info" data-editable="true">
+                                    <h3 class="book-title" data-editable="true">Atomic Habits</h3>
+                                    <p class="book-author" data-editable="true">James Clear</p>
+                                    <div class="book-progress">
+                                        <div class="book-progress-bar" style="width: 45%;"></div>
+                                    </div>
+                                </div>
+                                <div class="book-badge" data-editable="true">+10 XP</div>
+                            </div>
+                            <div class="book-card" data-editable="true">
+                                <div class="book-cover" style="background-image: url('https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=388&amp;q=80');"></div>
+                                <div class="book-info" data-editable="true">
+                                    <h3 class="book-title" data-editable="true">The Song of Achilles</h3>
+                                    <p class="book-author" data-editable="true">Madeline Miller</p>
+                                    <div class="book-progress">
+                                        <div class="book-progress-bar" style="width: 20%;"></div>
+                                    </div>
+                                </div>
+                                <div class="book-badge" data-editable="true">+5 XP</div>
+                            </div>
+                            <div class="book-card" data-editable="true">
+                                <div class="book-cover" style="background-image: url('https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=435&amp;q=80');"></div>
+                                <div class="book-info" data-editable="true">
+                                    <h3 class="book-title" data-editable="true">Dune</h3>
+                                    <p class="book-author" data-editable="true">Frank Herbert</p>
+                                    <div class="book-progress">
+                                        <div class="book-progress-bar" style="width: 5%;"></div>
+                                    </div>
+                                </div>
+                                <div class="book-badge" data-editable="true">+2 XP</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar" data-editable="true">
+                    <div class="achievements" data-editable="true">
+                        <div class="section-header" data-editable="true">
+                            <h2 class="section-title" data-editable="true">Achievements</h2>
+                            <a href="#" class="view-all" data-editable="true">View All</a>
+                        </div>
+                        <div class="achievement-list" data-editable="true">
+                            <div class="achievement-item achievement-unlocked" data-editable="true">
+                                <div class="achievement-icon" data-editable="true">🏆</div>
+                                <div class="achievement-info" data-editable="true">
+                                    <div class="achievement-name" data-editable="true">Bookworm</div>
+                                    <div class="achievement-desc" data-editable="true">Read 10 books</div>
+                                </div>
+                            </div>
+                            <div class="achievement-item achievement-unlocked" data-editable="true">
+                                <div class="achievement-icon" data-editable="true">🔥</div>
+                                <div class="achievement-info" data-editable="true">
+                                    <div class="achievement-name" data-editable="true">Streak Master</div>
+                                    <div class="achievement-desc" data-editable="true">Read for 7 days in a row</div>
+                                </div>
+                            </div>
+                            <div class="achievement-item" data-editable="true">
+                                <div class="achievement-icon" data-editable="true">🌙</div>
+                                <div class="achievement-info" data-editable="true">
+                                    <div class="achievement-name" data-editable="true">Night Owl</div>
+                                    <div class="achievement-desc" data-editable="true">Read after midnight</div>
+                                </div>
+                                <div class="achievement-progress" data-editable="true">0/1</div>
+                            </div>
+                            <div class="achievement-item achievement-locked" data-editable="true">
+                                <div class="achievement-icon" data-editable="true">🌍</div>
+                                <div class="achievement-info" data-editable="true">
+                                    <div class="achievement-name" data-editable="true">World Explorer</div>
+                                    <div class="achievement-desc" data-editable="true">Read books from 5 countries</div>
+                                </div>
+                                <div class="achievement-progress" data-editable="true">2/5</div>
+                            </div>
+                            <div class="achievement-item achievement-locked" data-editable="true">
+                                <div class="achievement-icon" data-editable="true">📚</div>
+                                <div class="achievement-info" data-editable="true">
+                                    <div class="achievement-name" data-editable="true">Genre Hopper</div>
+                                    <div class="achievement-desc" data-editable="true">Read in 3 different genres</div>
+                                </div>
+                                <div class="achievement-progress" data-editable="true">2/3</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reading-challenges" data-editable="true">
+                        <div class="section-header" data-editable="true">
+                            <h2 class="section-title" data-editable="true">Challenges</h2>
+                        </div>
+                        <div class="challenge-list" data-editable="true">
+                            <div class="challenge-item" data-editable="true">
+                                <div class="challenge-header" data-editable="true">
+                                    <div class="challenge-title" data-editable="true">Weekly Reading Goal</div>
+                                    <div class="challenge-reward" data-editable="true">+50 XP</div>
+                                </div>
+                                <div class="challenge-progress-bar">
+                                    <div class="challenge-progress-fill" style="width: 70%;"></div>
+                                </div>
+                                <div class="challenge-stats" data-editable="true">
+                                    <span data-editable="true">7 hours / 10 hours</span>
+                                    <span data-editable="true">3 days left</span>
+                                </div>
+                            </div>
+                            <div class="challenge-item" data-editable="true">
+                                <div class="challenge-header" data-editable="true">
+                                    <div class="challenge-title" data-editable="true">Finish Current Book</div>
+                                    <div class="challenge-reward" data-editable="true">+100 XP</div>
+                                </div>
+                                <div class="challenge-progress-bar">
+                                    <div class="challenge-progress-fill" style="width: 75%;"></div>
+                                </div>
+                                <div class="challenge-stats" data-editable="true">
+                                    <span data-editable="true">75% complete</span>
+                                    <span data-editable="true">~2 hours left</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="add-book-btn" data-editable="true">+</div>
+
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item active" data-editable="true">
+            <div class="nav-icon" data-editable="true">📚</div>
+            <span data-editable="true">Library</span>
+        </a>
+        <a href="#" class="nav-item" data-editable="true">
+            <div class="nav-icon" data-editable="true">🔍</div>
+            <span data-editable="true">Discover</span>
+        </a>
+        <a href="#" class="nav-item" data-editable="true">
+            <div class="nav-icon" data-editable="true">📊</div>
+            <span data-editable="true">Stats</span>
+        </a>
+        <a href="#" class="nav-item" data-editable="true">
+            <div class="nav-icon" data-editable="true">👤</div>
+            <span data-editable="true">Profile</span>
+        </a>
+    </nav>
+
+    <script>
+        // Simple animation for progress bars
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simulate reading progress update
+            const progressBar = document.querySelector('.progress-bar');
+            let width = 0;
+            const targetWidth = 65;
+            
+            const animateProgress = () => {
+                if (width >= targetWidth) return;
+                width += 1;
+                progressBar.style.width = width + '%';
+                setTimeout(animateProgress, 15);
+            };
+            
+            setTimeout(animateProgress, 500);
+            
+            // Add book button effect
+            const addBtn = document.querySelector('.add-book-btn');
+            addBtn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1.1)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                }, 150);
+                
+                // Show a toast notification
+                const toast = document.createElement('div');
+                toast.style.position = 'fixed';
+                toast.style.bottom = '150px';
+                toast.style.left = '50%';
+                toast.style.transform = 'translateX(-50%)';
+                toast.style.backgroundColor = 'var(--secondary)';
+                toast.style.color = 'white';
+                toast.style.padding = '10px 20px';
+                toast.style.borderRadius = '20px';
+                toast.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
+                toast.style.zIndex = '1000';
+                toast.textContent = 'Add a new book to your collection!';
+                
+                document.body.appendChild(toast);
+                
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    toast.style.transition = 'opacity 0.5s ease';
+                    setTimeout(() => {
+                        document.body.removeChild(toast);
+                    }, 500);
+                }, 2000);
+            });
+            
+            // Book card hover effects
+            const bookCards = document.querySelectorAll('.book-card');
+            bookCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // Simulate opening book details
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'translateY(-5px)';
+                    }, 150);
+                });
+            });
+        });
+    </script>
+
+
+
+
+</body></html>
